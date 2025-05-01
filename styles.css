@@ -1,0 +1,266 @@
+/* Reset dan dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+  
+body {
+    background: linear-gradient(to right, #fce4ec, #f8bbd0); 
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff0f5; /* Pink pastel */
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeInContainer 0.8s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Animasi fadeIn */
+@keyframes fadeInContainer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    color: #c2185b;
+    margin-bottom: 1.5rem;
+}
+
+/* Formulir */
+.form-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 400px; /* Batas lebar form */
+    animation: slideUp 1s ease-in-out;
+}
+
+/* Efek sliding form */
+@keyframes slideUp {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-group input,
+.form-group button {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #f8bbd0; 
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group button:hover {
+    border-color: #ec407a; 
+    outline: none;
+}
+
+.form-group button {
+    background: #ec407a;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background: #c2185b;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    color: #ad1457;
+}
+
+/* Bookshelves Container */
+.bookshelves-container {
+    display: flex;
+    flex-direction: row;  /* Membuat bookshelf berdampingan */
+    gap: 2rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.bookshelf {
+    flex: 1;  /* Membuat bookshelf lebih lebar */
+    padding: 1rem;
+    background-color: #fce4ec;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bookshelf h2 {
+    color: #ad1457;
+    margin-bottom: 0.5rem;
+}
+
+#incompleteBookshelf,
+#completeBookshelf {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Kartu Buku */
+[data-testid="bookItem"] {
+    border: 2px solid #f8bbd0;
+    border-left: 8px solid #ec407a;
+    background-color: #fce4ec;
+    border-radius: 12px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInBook 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInBook {
+    to {
+        opacity: 1;
+    }
+}
+
+[data-testid="bookItem"]:hover {
+    transform: scale(1.015);
+    box-shadow: 0 4px 12px rgba(236, 64, 122, 0.3);
+}
+
+[data-testid="bookItem"] h3 {
+    margin-bottom: 0.5rem;
+    color: #880e4f;
+}
+
+[data-testid="bookItem"] p {
+    margin-bottom: 0.3rem;
+}
+
+[data-testid="bookItem"] button {
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+[data-testid="bookItem"] button:hover {
+    transform: translateY(-2px);
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+    background-color: #f06292;
+    color: white;
+}
+
+[data-testid="bookItemDeleteButton"] {
+    background-color: #e57373;
+    color: white;
+}
+
+[data-testid="bookItemEditButton"] {
+    background-color: #64b5f6;
+    color: white;
+}
+
+/* Form Pencarian Buku */
+/* Form Pencarian Buku */
+#searchForm {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 2rem;  /* Menambahkan jarak ke atas form pencarian buku */
+    margin-bottom: 2rem; /* Menambahkan jarak bawah untuk memastikan tidak terlalu dekat dengan konten bawah */
+}
+
+#searchForm input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid #f8bbd0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#searchForm button {
+    padding: 0.75rem 1.5rem;
+    background-color: #f06292;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+#searchForm button:hover {
+    background-color: #c2185b;
+}
+
+/* Responsif untuk ukuran layar kecil */
+@media (max-width: 600px) {
+    .bookshelves-container {
+        flex-direction: column;
+    }
+
+    .form-vertical {
+        width: 100%;
+    }
+
+    form button {
+        width: 100%;
+    }
+}
+
+/* Styling Checkbox Container */
+.checkbox-container {
+    flex-basis: 100%;
+    margin-top: -0.5rem;
+}
+
+.checkbox-container label {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #ec407a;
+}
